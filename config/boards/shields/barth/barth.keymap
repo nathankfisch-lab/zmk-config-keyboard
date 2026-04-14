@@ -1,9 +1,13 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
 / {
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-
+            // Matrice 8x6 = 48 touches au total
             bindings = <
                 // Row 0
                 &kp Q    &kp W    &kp E    &kp R    &kp T    &kp Y
@@ -22,7 +26,6 @@
                 // Row 7
                 &kp SPACE &kp ENTER &kp BSPC &kp DEL &kp DOT &kp COMMA
             >;
-
         };
     };
 };
