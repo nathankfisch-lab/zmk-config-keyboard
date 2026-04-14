@@ -1,0 +1,2 @@
+config SHIELD_BARTH
+    def_bool y

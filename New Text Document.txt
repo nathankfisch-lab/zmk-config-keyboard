@@ -1,0 +1,6 @@
+zmk code kyria_rev3
+
+zmk cd
+git add .
+git commit -m "Initial commit"
+git push

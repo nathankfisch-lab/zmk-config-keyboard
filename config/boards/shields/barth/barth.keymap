@@ -1,0 +1,28 @@
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+
+            bindings = <
+                // Row 0
+                &kp Q    &kp W    &kp E    &kp R    &kp T    &kp Y
+                // Row 1
+                &kp A    &kp S    &kp D    &kp F    &kp G    &kp H
+                // Row 2
+                &kp Z    &kp X    &kp C    &kp V    &kp B    &kp N
+                // Row 3
+                &kp N1   &kp N2   &kp N3   &kp N4   &kp N5   &kp N6
+                // Row 4
+                &kp N7   &kp N8   &kp N9   &kp N0   &kp MINUS &kp EQUAL
+                // Row 5
+                &kp F1   &kp F2   &kp F3   &kp F4   &kp F5   &kp F6
+                // Row 6
+                &kp LEFT &kp DOWN &kp UP   &kp RIGHT &kp ESC &kp TAB
+                // Row 7
+                &kp SPACE &kp ENTER &kp BSPC &kp DEL &kp DOT &kp COMMA
+            >;
+
+        };
+    };
+};
