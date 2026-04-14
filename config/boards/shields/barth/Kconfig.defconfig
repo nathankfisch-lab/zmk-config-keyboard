@@ -1,0 +1,4 @@
+if SHIELD_BARTH
+config ZMK_KEYBOARD_NAME
+    default "barth"
+endif
