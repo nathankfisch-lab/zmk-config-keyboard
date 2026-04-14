@@ -1,8 +1,9 @@
 /dts-v1/;
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/gpio/gpio.h> // <--- Obligatoire pour GPIO_ACTIVE_HIGH
 
 / {
-    model = "Mon Clavier 8x6 Duplex";
+    model = "Mon Clavier 8x6";
     compatible = "zmk,keyboard";
 
     chosen {
@@ -12,27 +13,28 @@
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-
         diode-direction = "col2row";
 
+        /* Les lignes sont des entrées : on ajoute GPIO_PULL_DOWN */
         row-gpios = <
-            &gpio0 2  (GPIO_ACTIVE_HIGH)
-            &gpio0 3  (GPIO_ACTIVE_HIGH)
-            &gpio0 4  (GPIO_ACTIVE_HIGH)
-            &gpio0 5  (GPIO_ACTIVE_HIGH)
-            &gpio0 6  (GPIO_ACTIVE_HIGH)
-            &gpio0 7  (GPIO_ACTIVE_HIGH)
-            &gpio0 8  (GPIO_ACTIVE_HIGH)
-            &gpio0 9  (GPIO_ACTIVE_HIGH)
+            &gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+            &gpio0 3  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+            &gpio0 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+            &gpio0 5  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+            &gpio0 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+            &gpio0 7  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+            &gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
+            &gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)
         >;
 
+        /* Les colonnes sont des sorties : ACTIVE_HIGH suffit */
         col-gpios = <
-            &gpio0 10 (GPIO_ACTIVE_HIGH)
-            &gpio0 11 (GPIO_ACTIVE_HIGH)
-            &gpio0 12 (GPIO_ACTIVE_HIGH)
-            &gpio0 13 (GPIO_ACTIVE_HIGH)
-            &gpio0 14 (GPIO_ACTIVE_HIGH)
-            &gpio0 15 (GPIO_ACTIVE_HIGH)
+            &gpio0 10 GPIO_ACTIVE_HIGH
+            &gpio0 11 GPIO_ACTIVE_HIGH
+            &gpio0 12 GPIO_ACTIVE_HIGH
+            &gpio0 13 GPIO_ACTIVE_HIGH
+            &gpio0 14 GPIO_ACTIVE_HIGH
+            &gpio0 15 GPIO_ACTIVE_HIGH
         >;
     };
 
