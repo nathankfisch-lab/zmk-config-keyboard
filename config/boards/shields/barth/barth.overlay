@@ -26,7 +26,7 @@
 
     kscan0: kscan_node {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row"; 
+        diode-direction = "row2col"; 
         
         // Les ROWS (Lignes) : On utilise PULL_UP et ACTIVE_LOW
         row-gpios
