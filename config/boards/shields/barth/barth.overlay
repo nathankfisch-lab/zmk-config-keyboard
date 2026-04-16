@@ -1,7 +1,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/gpio/gpio.h>
 
-/* On supprime la définition "Right Control" pour éviter le conflit */
+/* On redéfinit RC pour la matrice */
 #undef RC
 #define RC(row, col) (((row) << 8) | (col))
 
@@ -27,9 +27,11 @@
         >;
     };
 
-kscan0: kscan {
+    /* C'est ici que l'erreur se produisait souvent */
+    kscan0: kscan_node {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "row2col";;
+        diode-direction = "col2row"; // ou "row2col" selon tes soudures
+        
         row-gpios
             = <&pro_micro 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&pro_micro 0 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
@@ -40,6 +42,7 @@ kscan0: kscan {
             , <&pro_micro 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&pro_micro 7 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             ;
+
         col-gpios
             = <&pro_micro 14 GPIO_ACTIVE_LOW>
             , <&pro_micro 15 GPIO_ACTIVE_LOW>
