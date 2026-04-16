@@ -1,36 +1,41 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/gpio/gpio.h>
 
-/* On redéfinit RC pour la matrice */
+/* Redéfinition du RC pour éviter les conflits */
 #undef RC
 #define RC(row, col) (((row) << 8) | (col))
 
 / {
     chosen {
         zmk,kscan = &kscan0;
+        /* Cette ligne cherchait 'default_transform' plus bas */
         zmk,matrix_transform = &default_transform;
     };
 
-    ddefault_transform: matrix_transform {
+    /* Voici le noeud que le compilateur ne trouvait pas */
+    default_transform: matrix_transform {
         compatible = "zmk,matrix-transform";
-        rows = <21>;    // Augmenté pour couvrir l'index max (20)
-        columns = <10>; // Augmenté pour couvrir l'index max (9)
+        /* On met des valeurs larges pour accepter tes index RC(17,9) et RC(20,9) */
+        rows = <21>;
+        columns = <10>;
         map = <
             RC(17,9) RC(20,9) RC(19,9) RC(14,9) RC(13,9) RC(12,9) RC(11,9) RC(10,9) 
             RC(17,8) RC(20,8) RC(19,8) RC(14,8) RC(13,8) RC(12,8) RC(11,8) RC(10,8)
             RC(17,7) RC(20,7) RC(19,7) RC(14,7) RC(13,7) RC(12,7) RC(11,7) RC(10,7)
-
+            
             RC(17,6) RC(20,6) RC(19,6) RC(14,6) RC(13,6) RC(12,6) RC(11,6) RC(10,6)
             RC(17,5) RC(20,5) RC(19,5) RC(14,5) RC(13,5) RC(12,5) RC(11,5) RC(10,5)
             RC(17,2) RC(20,2) RC(19,2) RC(14,2) RC(13,2) RC(12,2) RC(11,2) RC(10,2)
         >;
     };
 
-    /* C'est ici que l'erreur se produisait souvent */
     kscan0: kscan_node {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row"; // Essaie d'abord comme ça, si ça spam encore, mets "row2col"
+        /* On reste en col2row pour l'instant, change en row2col si rien ne marche */
+        diode-direction = "col2row"; 
         
+        /* Attention : tes listes de GPIO ci-dessous doivent être assez longues 
+           pour que l'index 20 (rows) et 9 (cols) existent ! */
         row-gpios
             = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             , <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
@@ -40,6 +45,9 @@
             , <&pro_micro 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             , <&pro_micro 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             , <&pro_micro 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            /* ... Ajoute des pins ici si tes index RC dépassent le nombre de pins listées */
             ;
 
         col-gpios
