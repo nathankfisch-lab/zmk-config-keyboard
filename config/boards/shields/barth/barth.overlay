@@ -11,18 +11,18 @@
         zmk,matrix_transform = &default_transform;
     };
 
-    default_transform: matrix_transform {
+    ddefault_transform: matrix_transform {
         compatible = "zmk,matrix-transform";
-        rows = <8>;
-        columns = <6>; 
+        rows = <21>;    // Augmenté pour couvrir l'index max (20)
+        columns = <10>; // Augmenté pour couvrir l'index max (9)
         map = <
-            RC(9,17) RC(9,20) RC(9,19) RC(9,14) RC(9,13) RC(9,12) RC(9,11) RC(9,10) 
-            RC(8,17) RC(8,20) RC(8,19) RC(8,14) RC(8,13) RC(8,12) RC(8,11) RC(8,10)
-            RC(7,17) RC(7,20) RC(7,19) RC(7,14) RC(7,13) RC(7,12) RC(7,11) RC(7,10)
+            RC(17,9) RC(20,9) RC(19,9) RC(14,9) RC(13,9) RC(12,9) RC(11,9) RC(10,9) 
+            RC(17,8) RC(20,8) RC(19,8) RC(14,8) RC(13,8) RC(12,8) RC(11,8) RC(10,8)
+            RC(17,7) RC(20,7) RC(19,7) RC(14,7) RC(13,7) RC(12,7) RC(11,7) RC(10,7)
 
-            RC(6,17) RC(6,20) RC(6,19) RC(6,14) RC(6,13) RC(6,12) RC(6,11) RC(6,10)
-            RC(5,17) RC(5,20) RC(5,19) RC(5,14) RC(5,13) RC(5,12) RC(5,11) RC(5,10)
-            RC(2,17) RC(2,20) RC(2,19) RC(2,14) RC(2,13) RC(2,12) RC(2,11) RC(2,10)
+            RC(17,6) RC(20,6) RC(19,6) RC(14,6) RC(13,6) RC(12,6) RC(11,6) RC(10,6)
+            RC(17,5) RC(20,5) RC(19,5) RC(14,5) RC(13,5) RC(12,5) RC(11,5) RC(10,5)
+            RC(17,2) RC(20,2) RC(19,2) RC(14,2) RC(13,2) RC(12,2) RC(11,2) RC(10,2)
         >;
     };
 
