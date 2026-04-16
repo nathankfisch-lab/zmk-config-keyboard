@@ -24,30 +24,26 @@
         >;
     };
 
-    kscan0: kscan_node {
+kscan0: kscan_node {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row"; 
-
-        // C'est ici que le PULL_UP doit être !
+        diode-direction = "row2col"; 
         row-gpios
-            = <&gpio0 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D9
-            , <&gpio0 8  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D8
-            , <&gpio0 6  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D7
-            , <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D6
-            , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D5
-            , <&gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D2
+            = <&gpio0 11 GPIO_ACTIVE_LOW> // D9
+            , <&gpio0 8  GPIO_ACTIVE_LOW> // D8
+            , <&gpio0 6  GPIO_ACTIVE_LOW> // D7
+            , <&gpio0 24 GPIO_ACTIVE_LOW> // D6
+            , <&gpio0 22 GPIO_ACTIVE_LOW> // D5
+            , <&gpio0 17 GPIO_ACTIVE_LOW> // D2
             ;
-
-        // Les colonnes envoient juste le signal, pas de PULL_UP ici
         col-gpios
-            = <&gpio0 31 GPIO_ACTIVE_LOW> // D17
-            , <&gpio0 29 GPIO_ACTIVE_LOW> // D20
-            , <&gpio0 2  GPIO_ACTIVE_LOW> // D19
-            , <&gpio1 15 GPIO_ACTIVE_LOW> // D14
-            , <&gpio1 13 GPIO_ACTIVE_LOW> // D13
-            , <&gpio1 11 GPIO_ACTIVE_LOW> // D12
-            , <&gpio0 10 GPIO_ACTIVE_LOW> // D11
-            , <&gpio0 9  GPIO_ACTIVE_LOW> // D10
+            = <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D17
+            , <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D20
+            , <&gpio0 2  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D19
+            , <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D14
+            , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D13
+            , <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D12
+            , <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D11
+            , <&gpio0 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D10
             ;
     };
 };
