@@ -13,8 +13,8 @@
 
     default_transform: matrix_transform {
         compatible = "zmk,matrix-transform";
-        rows = <6>;
-        columns = <8>; 
+        rows = <8>;
+        columns = <6>; 
         map = <
             RC(9,17) RC(9,20) RC(9,19) RC(9,14) RC(9,13) RC(9,12) RC(9,11) RC(9,10) 
             RC(8,17) RC(8,20) RC(8,19) RC(8,14) RC(8,13) RC(8,12) RC(8,11) RC(8,10)
