@@ -30,7 +30,7 @@
     /* C'est ici que l'erreur se produisait souvent */
     kscan0: kscan_node {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row"; // ou "row2col" selon tes soudures
+        diode-direction = "row2col"; // ou "row2col" selon tes soudures
         
         row-gpios
             = <&pro_micro 1 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
