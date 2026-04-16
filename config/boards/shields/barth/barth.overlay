@@ -1,58 +1,53 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/gpio/gpio.h>
 
-/* Redéfinition du RC pour éviter les conflits */
 #undef RC
 #define RC(row, col) (((row) << 8) | (col))
 
 / {
     chosen {
         zmk,kscan = &kscan0;
-        /* Cette ligne cherchait 'default_transform' plus bas */
         zmk,matrix_transform = &default_transform;
     };
 
-    /* Voici le noeud que le compilateur ne trouvait pas */
     default_transform: matrix_transform {
         compatible = "zmk,matrix-transform";
         rows = <8>;
         columns = <6>;
         map = <
-            RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5) RC(0,6) RC(0,7)
-            RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5) RC(1,6) RC(1,7)
-            RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(2,6) RC(2,7)
-
-            RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(3,6) RC(3,7)
-            RC(4,0) RC(4,1) RC(4,2) RC(4,3) RC(4,4) RC(4,5) RC(4,6) RC(4,7)
-            RC(5,0) RC(5,1) RC(5,2) RC(5,3) RC(5,4) RC(5,5) RC(5,6) RC(5,7)
+            RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5)
+            RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5)
+            RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)
+            RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5)
+            RC(4,0) RC(4,1) RC(4,2) RC(4,3) RC(4,4) RC(4,5)
+            RC(5,0) RC(5,1) RC(5,2) RC(5,3) RC(5,4) RC(5,5)
+            RC(6,0) RC(6,1) RC(6,2) RC(6,3) RC(6,4) RC(6,5)
+            RC(7,0) RC(7,1) RC(7,2) RC(7,3) RC(7,4) RC(7,5)
         >;
     };
 
     kscan0: kscan_node {
         compatible = "zmk,kscan-gpio-matrix";
-        /* On reste en col2row pour l'instant, change en row2col si rien ne marche */
         diode-direction = "col2row"; 
         
-        /* Attention : tes listes de GPIO ci-dessous doivent être assez longues 
-           pour que l'index 20 (rows) et 9 (cols) existent ! */
         row-gpios
-            = <&pro_micro 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&pro_micro 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            = <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Équivalent physique D17
+            , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Équivalent physique D20
+            , <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Équivalent physique D19
+            , <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Équivalent physique D14
+            , <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Équivalent physique D13
+            , <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Équivalent physique D12
+            , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Équivalent physique D11
+            , <&gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // Équivalent physique D10
             ;
 
         col-gpios
-            = <&pro_micro 9 GPIO_ACTIVE_HIGH>
-            , <&pro_micro 8 GPIO_ACTIVE_HIGH>
-            , <&pro_micro 7 GPIO_ACTIVE_HIGH>
-            , <&pro_micro 6 GPIO_ACTIVE_HIGH>
-            , <&pro_micro 5 GPIO_ACTIVE_HIGH>
-            , <&pro_micro 2 GPIO_ACTIVE_HIGH>
+            = <&gpio0 11 GPIO_ACTIVE_HIGH> // Équivalent physique D9
+            , <&gpio0 8  GPIO_ACTIVE_HIGH> // Équivalent physique D8
+            , <&gpio0 6  GPIO_ACTIVE_HIGH> // Équivalent physique D7
+            , <&gpio0 24 GPIO_ACTIVE_HIGH> // Équivalent physique D6
+            , <&gpio0 22 GPIO_ACTIVE_HIGH> // Équivalent physique D5
+            , <&gpio0 17 GPIO_ACTIVE_HIGH> // Équivalent physique D2
             ;
     };
 };
