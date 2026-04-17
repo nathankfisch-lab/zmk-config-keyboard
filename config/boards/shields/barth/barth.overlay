@@ -26,7 +26,7 @@
 
     kscan0: kscan_node {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row"; 
+        diode-direction = "row2col"; 
 
         // Les LIGNES (Rows) écoutent le signal. On met le Pull-up ICI.
         row-gpios
