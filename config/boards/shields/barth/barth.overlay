@@ -30,23 +30,23 @@ kscan0: kscan_node {
         diode-direction = "row2col"; 
 
         row-gpios
-            = <&gpio0 11 GPIO_ACTIVE_LOW> // D9 (Pin physique 12)
-            , <&gpio0 8  GPIO_ACTIVE_LOW> // D8 (Pin physique 11)
-            , <&gpio0 6  GPIO_ACTIVE_LOW> // D7 (Pin physique 10)
-            , <&gpio0 24 GPIO_ACTIVE_LOW> // D6 (Pin physique 9)
-            , <&gpio0 22 GPIO_ACTIVE_LOW> // D5 (Pin physique 8)
-            , <&gpio0 17 GPIO_ACTIVE_LOW> // D2 (Pin physique 5)
+            = <&gpio1 00 GPIO_ACTIVE_LOW> // D9 (Pin physique 12)
+            , <&gpio0 24  GPIO_ACTIVE_LOW> // D8 (Pin physique 11)
+            , <&gpio0 22  GPIO_ACTIVE_LOW> // D7 (Pin physique 10)
+            , <&gpio0 20 GPIO_ACTIVE_LOW> // D6 (Pin physique 9)
+            , <&gpio0 17 GPIO_ACTIVE_LOW> // D5 (Pin physique 8)
+            , <&gpio0 08 GPIO_ACTIVE_LOW> // D2 (Pin physique 5)
             ;
 
         col-gpios
-            = <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D17 (Pin 17)
-            , <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D20 (Pin 20)
-            , <&gpio0 2  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D19 (Pin 19)
-            , <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D14 (Pin 14)
-            , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D13 (Pin 13)
-            , <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D12 (Pin 12)
-            , <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D11 (Pin 11)
-            , <&gpio0 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D10 (Pin 10)
+            = <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D17 (Pin 17)
+            , <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D20 (Pin 20)
+            , <&gpio0 29  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D19 (Pin 19)
+            , <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D14 (Pin 14)
+            , <&gpio0 09 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D13 (Pin 13)
+            , <&gpio1 06 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D12 (Pin 12)
+            , <&gpio1 04 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D11 (Pin 11)
+            , <&gpio0 11  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> // D10 (Pin 10)
             ;
     };
 };
