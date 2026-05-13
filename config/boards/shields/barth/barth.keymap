@@ -12,8 +12,8 @@
                 &mo 1            &kp N0    &kp A     &kp I     &kp U    &kp N0    &kp O     &kp P
                 &kp SPACE        &kp N0    &kp E     &kp S     &kp T    &kp N0    &kp L     &kp M
 
-                &kp N1   &kp N0   &kp N8     &kp N9     &kp Z    &kp N0   &kp J     &kp B
-                &kp N2   &kp N0   &kp N7     &kp K      &kp Y    &kp N0   &kp H     &kp F
+                &kp N1   &kp N0   &kp N4     &kp N9     &kp Z    &kp N0   &kp J     &kp B
+                &kp N2   &kp N0   &kp N5     &kp K      &kp Y    &kp N0   &kp H     &kp F
                 &kp N3   &kp N0   &kp N6     &kp W     &kp X    &kp N0   &kp G      &kp Q
             >;
         };
